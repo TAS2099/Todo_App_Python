@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 'todo_app'
+    ports:
+      - 5002:5000
+    volumes:
+      - .:/app
