@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Todo アプリ</title> 
+{% endblock %}
+
+{% block content %}  
+  <h1>Todo アプリ</h1>
+  <a href="/create" role="button">新規イベント</a>
+  <div class="sample1">
+    <h1>やることリスト</h1>
+    <table class="table">
+      <tr>
+        <th>イベント</th>
+        <th>期限</th>
+        <th>設定</th>
+      </tr>
+      {% for task in tasks %}
+      <tr>
+        <td>{{ task.content }}</td>
+        <td>{{ task.due.date() }}</td>
+        <td>
+          <a href="/{{task.id}}/update" role="button">編集</a>
+          <a href="/{{task.id}}/delete" role="button">削除</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

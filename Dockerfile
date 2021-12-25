@@ -1,7 +1,7 @@
 FROM python:3.8
 
-RUN pip install numpy flask
+RUN pip install flask flask-sqlalchemy  PyMySQL
 
 WORKDIR /app
 
-CMD ["flask", "run", "-h", "0.0.0.0"]
+CMD ["python", "/app/app/app.py"]

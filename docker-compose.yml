@@ -6,6 +6,24 @@ services:
       dockerfile: Dockerfile
     container_name: 'todo_app'
     ports:
-      - 5002:5000
+      - 5002:80
     volumes:
       - .:/app
+    depends_on: 
+      - db
+
+  db:
+    platform: linux/x86_64
+    image: mysql:5.7
+    container_name: app_db
+    environment: 
+      MYSQL_ROOT_PASSWORD: password 
+      MYSQL_DATABASE: todo_app 
+      MYSQL_USER: user 
+      MYSQL_PASSWORD: password 
+      TZ: Asia/Tokyo
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - 5003:3306
+    volumes:
+      - ./db/mysql/data:/var/lib/mysql

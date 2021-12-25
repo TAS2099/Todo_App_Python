@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Todo アプリ</title> 
+{% endblock %}
+{% block content %}
+<h1>新規イベント</h1>
+<form method="POST">
+  <label for="content">イベント</label>
+  <input type="text" name="content">
+  <label for="due">締切日</label>
+  <input type="date" name="due">
+  <input type="submit" value="登録"> 
+</form>
+{% endblock %}
