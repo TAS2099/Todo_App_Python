@@ -12,7 +12,8 @@
       <tr>
         <th>イベント</th>
         <th>期限</th>
-        <th>設定</th>
+        <th>オプション</th>
+        <th>警告</th>
       </tr>
       {% for task in tasks %}
       <tr>
@@ -21,6 +22,23 @@
         <td>
           <a href="/{{task.id}}/update" role="button">編集</a>
           <a href="/{{task.id}}/delete" role="button">削除</a>
+        </td>
+        <td>
+          {% if task.due.date() == tdy + onedy %}
+          <div>
+          期限は明日です。
+          </div>
+          {% endif %}
+          {% if task.due.date() == tdy %}
+          <div>
+            期限は今日です。
+          </div>
+          {% endif %}
+          {% if task.due.date() < tdy %}
+          <div>
+            期限を過ぎています!
+          </div>
+          {% endif %}
         </td>
       </tr>
       {% endfor %}

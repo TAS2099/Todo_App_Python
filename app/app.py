@@ -27,7 +27,7 @@ class Task(db.Model):
 def index():
   if request.method == 'GET':
     tasks = Task.query.all()   
-    return render_template('index.html', tasks=tasks, tdy=datetime.date.today())
+    return render_template('index.html', tasks=tasks, tdy=datetime.date.today(), onedy=datetime.timedelta(days=1))
 
 @app.route("/create",methods=['GET','POST'])
 def create():
