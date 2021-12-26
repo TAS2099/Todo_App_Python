@@ -1,11 +1,14 @@
-{% extends "base.html" %}
-{% block head %}
+{% extends "bootstrap/base.html" %}
+{% block title %}
 <title>Todo アプリ</title> 
 {% endblock %}
 
-{% block content %}  
+{% block content %}
+<div class="container">
   <h1>Todo アプリ</h1>
-  <a href="/create" role="button">新規イベント</a>
+  <div class="btn-group">
+    <a href="/create" class="btn btn-primary">新規イベント</a>
+  </div>
   <div class="sample1">
     <h1>やることリスト</h1>
     <table class="table">
@@ -20,8 +23,8 @@
         <td>{{ task.content }}</td>
         <td>{{ task.due.date() }}</td>
         <td>
-          <a href="/{{task.id}}/update" role="button">編集</a>
-          <a href="/{{task.id}}/delete" role="button">削除</a>
+          <a class="btn btn-primary" href="/{{task.id}}/update" role="button">編集</a>
+          <a class="btn btn-primary" href="/{{task.id}}/delete" role="button">削除</a>
         </td>
         <td>
           {% if task.due.date() == tdy + onedy %}
@@ -44,4 +47,5 @@
       {% endfor %}
     </table>
   </div>
+</div>  
 {% endblock %}
