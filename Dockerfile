@@ -4,4 +4,4 @@ RUN pip install flask flask-sqlalchemy  PyMySQL flask-bootstrap gunicorn
 
 WORKDIR /app
 
-CMD ["python", "/app/app/app.py"]
+CMD ["python", "/todo/app/app.py"]
