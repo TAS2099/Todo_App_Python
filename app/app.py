@@ -58,7 +58,7 @@ def update(id):
 @app.route("/<int:id>/delete",methods=['GET'])
 def delete(id):
   task = Task.query.get(id)
-  
+
   db.session.delete(task)
   db.session.commit()
   return redirect('/')
